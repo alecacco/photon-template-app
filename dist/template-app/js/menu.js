@@ -1,8 +1,9 @@
-// var remote = require('remote')
-// var Menu = remote.require('menu')
-// var MenuItem = remote.require('menu-item')
-const {remote} = require('electron')
-const {Menu,MenuItem} = remote
+"use strict";
+var remote = require('remote')
+var Menu = remote.require('menu')
+var MenuItem = remote.require('menu-item')
+//const {remote} = require('electron')
+//const {Menu,MenuItem} = remote
 
 // Build our new menu
 var menu = new Menu()
@@ -24,8 +25,10 @@ menu.append(new MenuItem({
 // Add the listener
 document.addEventListener('DOMContentLoaded', function () {
 
-  let filesContext = document.querySelectorAll('.file_arq');
-  
+  let filesContext = Array.from(document.querySelectorAll('.file_arq'));
+
+  console.log(filesContext)
+
   filesContext.forEach(function(el){
     el.addEventListener('click', function (event) {
       event.preventDefault()
